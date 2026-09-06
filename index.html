@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Audio2Video AI</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#111;
+color:white;
+display:flex;
+justify-content:center;
+min-height:100vh;
+}
+
+.container{
+width:90%;
+max-width:600px;
+padding:40px 0;
+text-align:center;
+}
+
+h1{
+font-size:34px;
+margin-bottom:8px;
+}
+
+p{
+color:#aaa;
+}
+
+.card{
+background:#1d1d1d;
+padding:25px;
+border-radius:18px;
+margin-top:25px;
+}
+
+input{
+width:90%;
+padding:14px;
+margin:10px 0;
+background:#292929;
+color:white;
+border:1px solid #444;
+border-radius:10px;
+}
+
+button{
+width:95%;
+padding:15px;
+margin-top:15px;
+border:0;
+border-radius:10px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+#status{
+margin-top:20px;
+color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎬 Audio2Video AI</h1>
+<p>Turn your audio into a video</p>
+
+<div class="card">
+
+<h3>🎙️ Upload Audio</h3>
+<input type="file" id="audio" accept="audio/*">
+
+<h3>🖼️ Upload Images</h3>
+<input type="file" id="images" accept="image/*" multiple>
+
+<button onclick="createVideo()">Create Video</button>
+
+<div id="status"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function createVideo(){
+
+let audio=document.getElementById("audio").files[0];
+let images=document.getElementById("images").files;
+
+if(!audio){
+document.getElementById("status").innerText=
+"Please upload an audio file.";
+return;
+}
+
+if(images.length===0){
+document.getElementById("status").innerText=
+"Please upload at least one image.";
+return;
+}
+
+document.getElementById("status").innerText=
+"✅ Files received. Video generation system is ready for the next step.";
+
+}
+
+</script>
+
+</body>
+</html>
